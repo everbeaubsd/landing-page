@@ -73,6 +73,7 @@
 
   <!-- Event snippet for Contact Click Book Now conversion -->
   <script>
+    
     // Official Google Ads conversion function (slightly hardened)
     function gtag_report_conversion(url) {
       var navigated = false;
@@ -85,10 +86,10 @@
       };
       if (typeof gtag === 'function') {
         gtag('event', 'conversion', {
-          'send_to': 'AW-16710351180/rJpZCMDRjZ0bEMzyjqA-',
-          'value': 1.0,
-          'currency': 'IDR',
-          'event_callback': callback
+            'send_to': 'AW-16710351180/ezEwCMrp-5wbEMzyjqA-',
+            'value': 1.0,
+            'currency': 'IDR',
+            'event_callback': callback
         });
         // Safety timeout in case callback doesn't fire
         setTimeout(callback, 1200);

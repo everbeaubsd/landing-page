@@ -45,11 +45,11 @@
 
   <!-- Google Tag Manager -->
   <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-PT3FLLXF');
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PT3FLLXF');
   </script>
   <!-- End Google Tag Manager -->
 </head>
@@ -73,7 +73,6 @@
 
   <!-- Event snippet for Contact Click Book Now conversion -->
   <script>
-    
     // Official Google Ads conversion function (slightly hardened)
     function gtag_report_conversion(url) {
       var navigated = false;
@@ -84,12 +83,13 @@
           window.location = url; // same-tab redirect per Google snippet
         }
       };
+
       if (typeof gtag === 'function') {
         gtag('event', 'conversion', {
-            'send_to': 'AW-16710351180/ezEwCMrp-5wbEMzyjqA-',
-            'value': 1.0,
-            'currency': 'IDR',
-            'event_callback': callback
+          'send_to': 'AW-16710351180/ezEwCMrp-5wbEMzyjqA-',
+          'value': 1.0,
+          'currency': 'IDR',
+          'event_callback': callback
         });
         // Safety timeout in case callback doesn't fire
         setTimeout(callback, 1200);

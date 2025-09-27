@@ -12,6 +12,7 @@
       color-scheme: light;
       --brand:#DA8691;      /* Everbeau pink */
       --brand-2:#F2C6CC;    /* lighter pink */
+      --brand-deep:#9b3a4a; /* dark pink for logo bg */
       --ink:#1b1b1b;
       --text:#444;
       --muted:#6b7280;
@@ -22,37 +23,50 @@
     }
     *{box-sizing:border-box}
     html,body{height:100%;margin:0}
-    body{font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color:var(--text); background:linear-gradient(180deg,#fff 0%, #fff 60%, #fff7f8 100%)}
+    body{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color:var(--text);
+      background: var(--brand-2); /* solid pink background */
+      min-height:100vh;
+    }
 
     /* Layout */
     .container{width:min(1100px,92vw); margin:0 auto}
-    header.hero{border-bottom:1px solid var(--line); background:linear-gradient(180deg,#fffafc 0,#fff 60%)}
-    .topbar{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-    .brand{display:flex; align-items:center; gap:12px}
-    .brand img{width:44px; height:44px; object-fit:cover; border-radius:10px; background:#fff}
-    .brand h1{font-size:20px; margin:0; color:#a84151; letter-spacing:.3px}
+    header.hero{
+      background: #fff7f9;
+      border:1px solid #f3c8cf;
+      border-radius:24px;
+      padding:32px 20px;
+      margin-top:40px;
+      text-align:center;
+    }
 
-    .hero-grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:28px; align-items:center; padding:18px 0 24px}
-    .hero-title{font-size: clamp(26px,3.2vw,38px); color:var(--ink); margin:6px 0 4px}
-    .lead{font-size: clamp(15px,2.1vw,17px); color:var(--muted); margin:0 0 12px}
-    .badges{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 16px}
-    .badge{border:1px solid #f3d7db; background:#fff2f4; color:#9b3a4a; padding:6px 10px; border-radius:999px; font-size:12px}
+    .brand{display:flex; align-items:center; justify-content:center; margin-bottom:20px}
+    .brand img{
+      width:140px; height:140px;
+      object-fit:contain;
+      background: var(--brand-deep);
+      border-radius:28px;
+      padding:20px;
+      box-shadow: 0 12px 28px rgba(155,58,74,.25);
+    }
 
     /* Buttons */
-    .cta-wrap{display:flex; align-items:center; gap:12px; flex-wrap:wrap}
     .wa-button{
-      display:inline-flex; align-items:center; gap:10px; padding:14px 18px;
-      font-size:16px; font-weight:800; letter-spacing:.2px; color:#fff;
-      background-color: var(--success); border-radius:12px; text-decoration:none;
-      box-shadow: 0 8px 24px rgba(0,0,0,.12);
+      display:inline-flex; align-items:center; gap:10px;
+      padding:16px 24px;
+      font-size:18px; font-weight:700; color:#fff;
+      background-color: var(--success);
+      border-radius:16px; text-decoration:none;
+      box-shadow:0 8px 24px rgba(0,0,0,.12);
       transition: transform .06s ease, background-color .2s ease, box-shadow .2s ease;
+      border:2px solid rgba(0,0,0,.05);
     }
     .wa-button:hover{background-color:#1DA851}
     .wa-button:active{transform:translateY(1px); box-shadow:0 6px 16px rgba(0,0,0,.12)}
-    .wa-icon{width:22px; height:22px; flex:0 0 22px}
-    .note{font-size:13px; color:var(--muted)}
+    .wa-icon{width:24px; height:24px; flex:0 0 24px}
 
-    /* Cards / Sections */
+    /* Sections */
     section{padding:28px 0}
     .section-title{margin:0 0 10px; color:#7f2d3b}
     .muted{color:#6b6f76}
@@ -70,12 +84,8 @@
     th,td{padding:12px 10px; border-bottom:1px solid var(--line); text-align:left}
     th{background:#fff5f6; color:#7f2d3b}
 
-    /* Info card */
-    .hero-card{background:#fff; border:1px solid var(--line); border-radius:16px; padding:16px; box-shadow:0 10px 30px rgba(0,0,0,.04)}
-    .hero-card ul{margin:0 0 0 18px; padding:0}
-
     /* Footer */
-    footer{background:linear-gradient(180deg,#fdf2f4 0,#f8e5ea 100%); border-top:1px solid var(--line); color:#5e2b36}
+    footer{background:#f8e5ea; border-top:1px solid var(--line); color:#5e2b36}
     .footer-inner{display:grid; grid-template-columns:1.2fr .8fr; gap:16px; padding:22px 0}
     .legal{font-size:13px; color:#71424c}
     .footer-title{margin:0 0 6px; color:#7f2d3b}
@@ -84,7 +94,7 @@
 
     /* Responsive */
     @media (max-width: 900px){
-      .hero-grid, .cards, .pricing, .footer-inner{grid-template-columns:1fr}
+      .cards, .pricing, .footer-inner{grid-template-columns:1fr}
     }
   </style>
 
@@ -96,46 +106,6 @@
     gtag('js', new Date());
     gtag('config', 'AW-16710351180'); // Google Ads
   </script>
-
-  <style>
-  /* --- Pinkish theme overrides --- */
-  :root{
-    --brand:#DA8691;          /* light Everbeau pink */
-    --brand-deep:#9b3a4a;     /* deeper pink for contrast */
-    --bg-soft-1:#ffe7ec;
-    --bg-soft-2:#ffd4de;
-    --ink:#1b1b1b;
-  }
-
-  body{
-    display:block; /* remove grid centering so sections can stack if you add more later */
-    background: linear-gradient(180deg, var(--bg-soft-1) 0%, var(--bg-soft-2) 100%);
-    min-height:100vh;
-    padding: 40px 0; /* spacing around the button/hero */
-  }
-
-  /* Center content wrapper */
-  .container { width: min(960px, 92vw); margin: 0 auto; }
-
-  /* Give the header area a very soft card feel */
-  header.hero { background: linear-gradient(180deg,#fff6f8 0%, #ffeef2 100%); border:1px solid #f3c8cf; border-radius:18px; padding:16px; }
-
-  /* Make the white logo visible: put it on a deep-pink rounded badge */
-  .brand { display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:14px; }
-  .brand img {
-    width:56px; height:56px; object-fit:contain;
-    background: var(--brand-deep);
-    border-radius:12px;
-    padding:10px;
-    box-shadow: 0 6px 20px rgba(155,58,74,.25);
-  }
-
-  /* Button stays WhatsApp green; add subtle outline for pink theme */
-  .wa-button { border:2px solid rgba(0,0,0,.04) }
-
-  /* Keep the button centered like before */
-  .cta { display:flex; justify-content:center; }
-</style>
 </head>
 <body>
 
@@ -143,21 +113,17 @@
   <div class="container">
     <header class="hero">
       <div class="brand">
-        <!-- your white PNG -->
         <img src="everbeau.png" alt="Everbeau">
       </div>
-
-      <div class="cta">
-        <a
-          href="https://wa.me/6281322220690"
-          class="wa-button"
-          id="whatsapp-button"
-          aria-label="Pesan lewat WhatsApp"
-          onclick="return trackAndConvert(this.href);">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" class="wa-icon" aria-hidden="true">
-          Book Now
-        </a>
-      </div>
+      <a
+        href="https://wa.me/6281322220690"
+        class="wa-button"
+        id="whatsapp-button"
+        aria-label="Pesan lewat WhatsApp"
+        onclick="return trackAndConvert(this.href);">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" class="wa-icon" aria-hidden="true">
+        Book Now
+      </a>
     </header>
   </div>
 

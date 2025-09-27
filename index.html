@@ -96,63 +96,70 @@
     gtag('js', new Date());
     gtag('config', 'AW-16710351180'); // Google Ads
   </script>
+
+  <style>
+  /* --- Pinkish theme overrides --- */
+  :root{
+    --brand:#DA8691;          /* light Everbeau pink */
+    --brand-deep:#9b3a4a;     /* deeper pink for contrast */
+    --bg-soft-1:#ffe7ec;
+    --bg-soft-2:#ffd4de;
+    --ink:#1b1b1b;
+  }
+
+  body{
+    display:block; /* remove grid centering so sections can stack if you add more later */
+    background: linear-gradient(180deg, var(--bg-soft-1) 0%, var(--bg-soft-2) 100%);
+    min-height:100vh;
+    padding: 40px 0; /* spacing around the button/hero */
+  }
+
+  /* Center content wrapper */
+  .container { width: min(960px, 92vw); margin: 0 auto; }
+
+  /* Give the header area a very soft card feel */
+  header.hero { background: linear-gradient(180deg,#fff6f8 0%, #ffeef2 100%); border:1px solid #f3c8cf; border-radius:18px; padding:16px; }
+
+  /* Make the white logo visible: put it on a deep-pink rounded badge */
+  .brand { display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:14px; }
+  .brand img {
+    width:56px; height:56px; object-fit:contain;
+    background: var(--brand-deep);
+    border-radius:12px;
+    padding:10px;
+    box-shadow: 0 6px 20px rgba(155,58,74,.25);
+  }
+
+  /* Button stays WhatsApp green; add subtle outline for pink theme */
+  .wa-button { border:2px solid rgba(0,0,0,.04) }
+
+  /* Keep the button centered like before */
+  .cta { display:flex; justify-content:center; }
+</style>
 </head>
 <body>
 
   <!-- HERO -->
-  <header class="hero">
-    <div class="container">
-      <div class="topbar">
-        <div class="brand">
-          <!-- Ganti src dengan URL logo kamu -->
-          <img src="everbeau.png" alt="Logo Everbeau">
-          <h1>Everbeau</h1>
-        </div>
+  <div class="container">
+    <header class="hero">
+      <div class="brand">
+        <!-- your white PNG -->
+        <img src="assets/logo-everbeau.png" alt="Everbeau">
+      </div>
+
+      <div class="cta">
         <a
-          href="https://wa.me/6281322220690?text=Halo%20Everbeau%2C%20saya%20mau%20booking%20treatment..."
-          class="wa-button" id="whatsapp-button-top"
+          href="https://wa.me/6281322220690"
+          class="wa-button"
+          id="whatsapp-button"
           aria-label="Pesan lewat WhatsApp"
           onclick="return trackAndConvert(this.href);">
           <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" class="wa-icon" aria-hidden="true">
-          Booking via WhatsApp
+          Book Now
         </a>
       </div>
-
-      <div class="hero-grid">
-        <div>
-          <h2 class="hero-title">Lashes, Brows & Nails yang Rapih—langsung booking via WhatsApp</h2>
-          <p class="lead">Teknik Jepang (CarraTouch™), bahan premium, higienis, dengan garansi pasca treatment.</p>
-          <div class="badges">
-            <span class="badge">Free Lash Spa*</span>
-            <span class="badge">Garansi 3 hari (lash)</span>
-            <span class="badge">Premium glue • low fumes</span>
-            <span class="badge">Home Service tersedia</span>
-          </div>
-          <div class="cta-wrap">
-            <a
-              href="https://wa.me/6281322220690?text=Halo%20Everbeau%2C%20saya%20mau%20booking%20treatment..."
-              class="wa-button"
-              onclick="return trackAndConvert(this.href);">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" class="wa-icon" aria-hidden="true">
-              Chat & Booking WhatsApp
-            </a>
-            <span class="note">Telp: <a href="tel:081322220690">0813-2222-0690</a></span>
-          </div>
-        </div>
-
-        <aside class="hero-card" aria-label="Info Singkat">
-          <h3 style="margin:0 0 8px;">Ringkasan</h3>
-          <ul>
-            <li>Lokasi: BSD, Tangerang — Banten</li>
-            <li>Jam buka: 10.00–20.00 (tutup 8 malam)</li>
-            <li>Pembayaran: Tunai • Transfer • QRIS</li>
-            <li>Area layanan home service: sekitar BSD & sekitarnya</li>
-          </ul>
-          <div class="small" style="margin-top:8px;">*Benefit sesuai paket & ketersediaan.</div>
-        </aside>
-      </div>
-    </div>
-  </header>
+    </header>
+  </div>
 
   <!-- DIFFERENCE STANDARD vs PREMIUM -->
   <section id="standard-premium">

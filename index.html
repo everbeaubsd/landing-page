@@ -3,34 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hubungi WhatsApp</title>
+  <title>Everbeau — Booking WhatsApp | Harga Layanan & Alamat</title>
+  <meta name="description" content="Everbeau: layanan eyelash, lash lift, brows & nails. Lihat harga treatment, garansi, home service, dan booking via WhatsApp. Alamat: BSD, Tangerang, Banten." />
+  <meta name="robots" content="index, follow" />
+
   <style>
-    :root { color-scheme: light; }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; margin: 0; }
-    body {
-      display: grid;
-      place-items: center;
-      font-family: Arial, sans-serif;
-      background: #f6c3c3;
+    :root{
+      color-scheme: light;
+      --brand:#DA8691;      /* Everbeau pink */
+      --brand-2:#F2C6CC;    /* lighter pink */
+      --ink:#1b1b1b;
+      --text:#444;
+      --muted:#6b7280;
+      --line:#eee;
+      --bg:#fff;
+      --soft:#fff7f8;
+      --success:#25D366;    /* WhatsApp */
     }
-    .wa-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 20px 40px;
-      font-size: 22px;
-      font-weight: 700;
-      color: #fff;
-      background-color: #25D366;
-      border-radius: 12px;
-      text-decoration: none;
-      box-shadow: 0 8px 20px rgba(0,0,0,.12);
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0}
+    body{font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color:var(--text); background:linear-gradient(180deg,#fff 0%, #fff 60%, #fff7f8 100%)}
+
+    /* Layout */
+    .container{width:min(1100px,92vw); margin:0 auto}
+    header.hero{border-bottom:1px solid var(--line); background:linear-gradient(180deg,#fffafc 0,#fff 60%)}
+    .topbar{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand img{width:44px; height:44px; object-fit:cover; border-radius:10px; background:#fff}
+    .brand h1{font-size:20px; margin:0; color:#a84151; letter-spacing:.3px}
+
+    .hero-grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:28px; align-items:center; padding:18px 0 24px}
+    .hero-title{font-size: clamp(26px,3.2vw,38px); color:var(--ink); margin:6px 0 4px}
+    .lead{font-size: clamp(15px,2.1vw,17px); color:var(--muted); margin:0 0 12px}
+    .badges{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 16px}
+    .badge{border:1px solid #f3d7db; background:#fff2f4; color:#9b3a4a; padding:6px 10px; border-radius:999px; font-size:12px}
+
+    /* Buttons */
+    .cta-wrap{display:flex; align-items:center; gap:12px; flex-wrap:wrap}
+    .wa-button{
+      display:inline-flex; align-items:center; gap:10px; padding:14px 18px;
+      font-size:16px; font-weight:800; letter-spacing:.2px; color:#fff;
+      background-color: var(--success); border-radius:12px; text-decoration:none;
+      box-shadow: 0 8px 24px rgba(0,0,0,.12);
       transition: transform .06s ease, background-color .2s ease, box-shadow .2s ease;
     }
-    .wa-button:hover { background-color: #1DA851; }
-    .wa-button:active { transform: translateY(1px); box-shadow: 0 6px 16px rgba(0,0,0,.12); }
-    .wa-icon { width: 32px; height: 32px; flex: 0 0 32px; }
+    .wa-button:hover{background-color:#1DA851}
+    .wa-button:active{transform:translateY(1px); box-shadow:0 6px 16px rgba(0,0,0,.12)}
+    .wa-icon{width:22px; height:22px; flex:0 0 22px}
+    .note{font-size:13px; color:var(--muted)}
+
+    /* Cards / Sections */
+    section{padding:28px 0}
+    .section-title{margin:0 0 10px; color:#7f2d3b}
+    .muted{color:#6b6f76}
+    .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .card{background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px}
+    .card h3{margin:0 0 8px; font-size:18px; color:var(--ink)}
+
+    /* Pricing */
+    .pricing{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .price-item{background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px}
+    .price-item h4{margin:0 0 6px; font-size:16px; color:var(--ink)}
+    .price{font-weight:900; margin:2px 0 6px; color:#0f172a}
+    .small{font-size:12.5px; color:#6b7280}
+    table{width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden}
+    th,td{padding:12px 10px; border-bottom:1px solid var(--line); text-align:left}
+    th{background:#fff5f6; color:#7f2d3b}
+
+    /* Info card */
+    .hero-card{background:#fff; border:1px solid var(--line); border-radius:16px; padding:16px; box-shadow:0 10px 30px rgba(0,0,0,.04)}
+    .hero-card ul{margin:0 0 0 18px; padding:0}
+
+    /* Footer */
+    footer{background:linear-gradient(180deg,#fdf2f4 0,#f8e5ea 100%); border-top:1px solid var(--line); color:#5e2b36}
+    .footer-inner{display:grid; grid-template-columns:1.2fr .8fr; gap:16px; padding:22px 0}
+    .legal{font-size:13px; color:#71424c}
+    .footer-title{margin:0 0 6px; color:#7f2d3b}
+    a{color:#a23e50; text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid, .cards, .pricing, .footer-inner{grid-template-columns:1fr}
+    }
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -39,27 +94,221 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-  
-    gtag('config', 'AW-16710351180');
+    gtag('config', 'AW-16710351180'); // Google Ads
   </script>
-
 </head>
 <body>
 
-  <a
-    href="https://wa.me/6281322220690"
-    class="wa-button"
-    id="whatsapp-button"
-    aria-label="Pesan lewat WhatsApp"
-    onclick="return trackAndConvert(this.href);">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-         alt="" class="wa-icon" aria-hidden="true">
-    Book Now
-  </a>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">
+          <!-- Ganti src dengan URL logo kamu -->
+          <img src="everbeau.png" alt="Logo Everbeau">
+          <h1>Everbeau</h1>
+        </div>
+        <a
+          href="https://wa.me/6281322220690?text=Halo%20Everbeau%2C%20saya%20mau%20booking%20treatment..."
+          class="wa-button" id="whatsapp-button-top"
+          aria-label="Pesan lewat WhatsApp"
+          onclick="return trackAndConvert(this.href);">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" class="wa-icon" aria-hidden="true">
+          Booking via WhatsApp
+        </a>
+      </div>
 
-  <!-- Google Ads Conversion Tracking with In-Page Code -->
+      <div class="hero-grid">
+        <div>
+          <h2 class="hero-title">Lashes, Brows & Nails yang Rapih—langsung booking via WhatsApp</h2>
+          <p class="lead">Teknik Jepang (CarraTouch™), bahan premium, higienis, dengan garansi pasca treatment.</p>
+          <div class="badges">
+            <span class="badge">Free Lash Spa*</span>
+            <span class="badge">Garansi 3 hari (lash)</span>
+            <span class="badge">Premium glue • low fumes</span>
+            <span class="badge">Home Service tersedia</span>
+          </div>
+          <div class="cta-wrap">
+            <a
+              href="https://wa.me/6281322220690?text=Halo%20Everbeau%2C%20saya%20mau%20booking%20treatment..."
+              class="wa-button"
+              onclick="return trackAndConvert(this.href);">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" class="wa-icon" aria-hidden="true">
+              Chat & Booking WhatsApp
+            </a>
+            <span class="note">Telp: <a href="tel:081322220690">0813-2222-0690</a></span>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Info Singkat">
+          <h3 style="margin:0 0 8px;">Ringkasan</h3>
+          <ul>
+            <li>Lokasi: BSD, Tangerang — Banten</li>
+            <li>Jam buka: 10.00–20.00 (tutup 8 malam)</li>
+            <li>Pembayaran: Tunai • Transfer • QRIS</li>
+            <li>Area layanan home service: sekitar BSD & sekitarnya</li>
+          </ul>
+          <div class="small" style="margin-top:8px;">*Benefit sesuai paket & ketersediaan.</div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <!-- DIFFERENCE STANDARD vs PREMIUM -->
+  <section id="standard-premium">
+    <div class="container">
+      <h2 class="section-title">Eyelash Extension: Standard vs Premium</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Standard</h3>
+          <ul class="muted">
+            <li>Glossy finishing</li>
+            <li>Mascara effect</li>
+            <li>Regular eyegel patch & paper tape</li>
+            <li>Regular eyelash glue</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Premium</h3>
+          <ul class="muted">
+            <li>Matte finishing, eyeliner effect</li>
+            <li>Snail collagen eyegel patch</li>
+            <li>Skinergrate Nichiban (lint-free) tape</li>
+            <li>Medical grade glue (formaldehyde-free & low fumes)</li>
+            <li>Tersedia untuk Home Service</li>
+            <li>Periode retouch lebih panjang</li>
+          </ul>
+          <div class="small">Produk: LashMagic, Matsukaze, Lavere (Original Japan).</div>
+        </div>
+        <div class="card">
+          <h3>Garansi</h3>
+          <ul class="muted" style="margin:0">
+            <li>Eyelash Extension: 3 hari</li>
+            <li>Japanese Lash Up: 1–2 minggu</li>
+            <li>Nail Treatments: 3 hari (bila chipped)</li>
+          </ul>
+          <div class="small" style="margin-top:8px;">S&K berlaku.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE LIST -->
+  <section id="harga">
+    <div class="container">
+      <h2 class="section-title">Harga Layanan</h2>
+      <p class="muted" style="margin-top:0">Semua harga berikut adalah jasa treatment (produk tidak termasuk).</p>
+
+      <!-- Brows -->
+      <h3 style="margin:18px 0 6px;">Brow Treatments</h3>
+      <div class="pricing" aria-label="Brow price list">
+        <article class="price-item"><h4>Browvolution</h4><div class="price">Rp 600.000</div><div class="small">mapping • shaping • tinting • nourishing</div></article>
+        <article class="price-item"><h4>Browtiful</h4><div class="price">Rp 450.000</div><div class="small">mapping • shaping • nourishing</div></article>
+        <article class="price-item"><h4>Brow Tinting</h4><div class="price">Rp 250.000</div><div class="small">mapping • shaping • tinting • nourishing</div></article>
+        <article class="price-item"><h4>Brow Shaping</h4><div class="price">Rp 100.000</div><div class="small">mapping • shaping</div></article>
+      </div>
+
+      <!-- Lashes main -->
+      <h3 style="margin:22px 0 6px;">Eyelash Extension — Classic & Layering</h3>
+      <div style="overflow:auto;">
+        <table aria-label="Harga eyelash extension">
+          <thead><tr><th>Jenis</th><th>Paket</th><th>Harga</th><th>Keterangan</th></tr></thead>
+          <tbody>
+            <tr><td>Classic Natural</td><td>Standard</td><td><strong>Rp 250.000</strong></td><td>1:1 single lash, natural–glam (±70 LPE)</td></tr>
+            <tr><td>Classic Natural</td><td>Premium</td><td><strong>Rp 400.000</strong></td><td>Finishing & material premium</td></tr>
+            <tr><td>2D Layering</td><td>Standard</td><td><strong>Rp 350.000</strong></td><td>2 helai/1 lash, soft natural (±140 LPE)</td></tr>
+            <tr><td>2D Layering</td><td>Premium</td><td><strong>Rp 600.000</strong></td><td>Glue medical grade</td></tr>
+            <tr><td>3D Layering</td><td>Standard</td><td><strong>Rp 450.000</strong></td><td>3 helai/1 lash, fluffy natural (±210 LPE)</td></tr>
+            <tr><td>3D Layering</td><td>Premium</td><td><strong>Rp 700.000</strong></td><td>Retouch period lebih lama</td></tr>
+            <tr><td>Blooming Light</td><td>Standard</td><td><strong>Rp 550.000</strong></td><td>Fan lembut, open & volumized look</td></tr>
+            <tr><td>Blooming Light</td><td>Premium</td><td><strong>Rp 800.000</strong></td><td>Matte finishing, eyeliner effect</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Lashes care -->
+      <h3 style="margin:22px 0 6px;">Lash Lift & Perawatan</h3>
+      <div class="pricing">
+        <article class="price-item"><h4>Japanese Lash Up</h4><div class="price">Rp 500.000</div><div class="small">dengan Collagen Filler, Lift & Tint (Lash Spa included)</div></article>
+        <article class="price-item"><h4>Lash Reverse</h4><div class="price">Rp 250.000</div><div class="small">meluruskan & memulihkan lashes yang rusak (Lash Spa included)</div></article>
+        <article class="price-item"><h4>Eyelash Extension Removal</h4><div class="price">FREE – Rp 100.000</div><div class="small">Karya Everbeau: GRATIS • Salon lain &gt;20 strands/eye: Rp 100.000</div></article>
+      </div>
+
+      <!-- Retouch -->
+      <h3 style="margin:22px 0 6px;">Retouch Eyelash Extension</h3>
+      <div style="overflow:auto;">
+        <table aria-label="Harga retouch eyelash">
+          <thead><tr><th>Kategori</th><th>Waktu Sejak Treatment</th><th>Classic</th><th>2D</th><th>3D</th><th>Blooming</th></tr></thead>
+          <tbody>
+            <tr><td>Standard</td><td>≤ 2 minggu (50% OFF)</td><td>125k</td><td>175k</td><td>225k</td><td>275k</td></tr>
+            <tr><td>Premium</td><td>≤ 1 minggu (80% OFF)</td><td>80k</td><td>120k</td><td>140k</td><td>160k</td></tr>
+            <tr><td>Premium</td><td>2–3 minggu (60% OFF)</td><td>160k</td><td>240k</td><td>280k</td><td>320k</td></tr>
+            <tr><td>Premium</td><td>4 minggu (40% OFF)</td><td>240k</td><td>360k</td><td>420k</td><td>480k</td></tr>
+            <tr><td>Premium</td><td>5–8 minggu (20% OFF)</td><td>320k</td><td>480k</td><td>560k</td><td>640k</td></tr>
+          </tbody>
+        </table>
+        <p class="small" style="margin-top:6px;">Tanggal retouch dihitung dari treatment terakhir. Free repair untuk garansi retouch jika rontok &gt;7 helai/hari (masa garansi 3 hari).</p>
+      </div>
+
+      <!-- Nails -->
+      <h3 style="margin:22px 0 6px;">Nail Treatments</h3>
+      <div style="overflow:auto;">
+        <table aria-label="Harga nail treatments">
+          <thead><tr><th>Layanan</th><th>Harga</th><th>Catatan</th></tr></thead>
+          <tbody>
+            <tr><td>Classic Manicure</td><td><strong>Rp 75.000</strong></td><td>Japanese Express dry treatment</td></tr>
+            <tr><td>Classic Pedicure</td><td><strong>Rp 100.000</strong></td><td>Japanese Express dry treatment</td></tr>
+            <tr><td>Spa Manicure</td><td><strong>Rp 125.000</strong></td><td>Japanese Premium spa treatment</td></tr>
+            <tr><td>Spa Pedicure</td><td><strong>Rp 175.000</strong></td><td>Japanese Premium spa treatment</td></tr>
+            <tr><td>Regular & Breathable Nail-Gel Polish</td><td><strong>+ Rp 150.000</strong></td><td>opsi non-toxic breathable (halal)</td></tr>
+            <tr><td>Callus Removal</td><td><strong>Rp 150.000</strong></td><td>signature treatment dengan natural ingredients</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Home Service -->
+      <h3 style="margin:22px 0 6px;">Home Service</h3>
+      <div class="pricing">
+        <article class="price-item"><h4>&lt; 10 km dari studio</h4><div class="price">Rp 50.000</div><div class="small">+ transport Go-RIDE/Grab Bike</div></article>
+        <article class="price-item"><h4>&gt; 10 km dari studio</h4><div class="price">Rp 75.000</div><div class="small">+ transport Go-CAR/Grab Car • Saat hujan menggunakan mobil</div></article>
+      </div>
+      <div class="small" style="margin-top:6px;">
+        T&C Home Service: hanya untuk Premium Eyelash Extension, Lash Up & Nail. Promo tidak berlaku.
+        Jam booking 10.00–18.00 (di luar jam by request). DP 50% untuk mengamankan slot. Biaya tunggu Rp 50.000 / 30 menit.
+      </div>
+
+      <div class="cta-wrap" style="margin-top:14px;">
+        <a href="https://wa.me/6281322220690?text=Halo%20Everbeau%2C%20saya%20mau%20booking%20treatment..."
+           class="wa-button" onclick="return trackAndConvert(this.href);">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" class="wa-icon" aria-hidden="true">
+          Booking via WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <h3 class="footer-title">Everbeau</h3>
+        <div class="legal">
+          Address: Jl. Horizon Broadway Jl. BSD Raya Barat No.M1/8, Lantai 2, Sampora, Kec. Cisauk, Kabupaten Tangerang, Banten 15345<br>
+          Phone: <a href="tel:081322220690">0813-2222-0690</a><br>
+          Products & Services: <a href="https://bit.ly" rel="nofollow noopener">bit.ly</a><br>
+          Hours: Open — Closes 20:00 (8 pm) • Province: Banten
+        </div>
+      </div>
+      <div class="legal">
+        <div>WhatsApp: <a href="https://wa.me/6281322220690" onclick="return trackAndConvert(this.href);">62813-2222-0690</a></div>
+        <div style="margin-top:6px;">© <span id="y"></span> Everbeau. All rights reserved.</div>
+        <div style="margin-top:6px;">Edit your business information</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Conversion tracking (kept from your page) -->
   <script>
-    // Official Google Ads conversion function (slightly hardened)
     function gtag_report_conversion(url) {
       var navigated = false;
       var callback = function () {
@@ -69,35 +318,27 @@
           window.location = url; // same-tab redirect per Google snippet
         }
       };
-
       if (typeof gtag === 'function') {
         gtag('event', 'conversion', {
-          'send_to': 'AW-16710351180/ezEwCMrp-5wbEMzyjqA-', // Conversion ID
+          'send_to': 'AW-16710351180/ezEwCMrp-5wbEMzyjqA-',
           'value': 1.0,
           'currency': 'IDR',
           'event_callback': callback
         });
-        // Safety timeout in case callback doesn't fire
         setTimeout(callback, 1200);
-        return false; // prevent default navigation until callback
+        return false;
       } else {
-        // Fallback if gtag is unavailable
         if (url) window.location = url;
         return false;
       }
     }
-
-    // Wrapper to also log your existing GA event, then trigger conversion
     function trackAndConvert(url) {
       if (typeof gtag === 'function') {
-        gtag('event', 'click_booking', {
-          event_category: 'engagement',
-          event_label: 'WhatsApp Button'
-        });
+        gtag('event', 'click_booking', {event_category:'engagement', event_label:'WhatsApp Button'});
       }
       return gtag_report_conversion(url);
     }
+    document.getElementById('y').textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
